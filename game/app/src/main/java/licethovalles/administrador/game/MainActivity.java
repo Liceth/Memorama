@@ -14,8 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
+
+import android.os.Handler;
 
 
 public class MainActivity extends ActionBarActivity  {
@@ -26,6 +26,7 @@ public class MainActivity extends ActionBarActivity  {
     RelativeLayout X;
     int contador,total=0,intento=0;
     Bundle temp;
+    //Handler h;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +54,14 @@ public class MainActivity extends ActionBarActivity  {
         ed.setText("Intentos : "+intento+"\r\ntotal : "+total);
         contador=16;
 
+
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 b1.setText("1");
                 botones.add(b1);
-                comparar();
+                comparar2();
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +69,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b2.setText("1");
                 botones.add(b2);
-                comparar();
+                comparar2();
             }
         });
         b3.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +77,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b3.setText("2");
                 botones.add(b3);
-                comparar();
+                comparar2();
             }
         });
         b4.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +85,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b4.setText("3");
                 botones.add(b4);
-                comparar();
+                comparar2();
             }
         });
         b5.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +93,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b5.setText("4");
                 botones.add(b5);
-                comparar();
+                comparar2();
             }
         });
         b6.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +101,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b6.setText("2");
                 botones.add(b6);
-                comparar();
+                comparar2();
             }
         });
         b7.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +109,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b7.setText("4");
                 botones.add(b7);
-                comparar();
+                comparar2();
             }
         });
         b8.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +117,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b8.setText("3");
                 botones.add(b8);
-                comparar();
+                comparar2();
             }
         });
         b9.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +125,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b9.setText("8");
                 botones.add(b9);
-                comparar();
+                comparar2();
             }
         });
         b10.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +133,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b10.setText("7");
                 botones.add(b10);
-                comparar();
+                comparar2();
             }
         });
         b11.setOnClickListener(new View.OnClickListener() {
@@ -138,7 +141,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b11.setText("6");
                 botones.add(b11);
-                comparar();
+                comparar2();
             }
         });
         b12.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +149,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b12.setText("5");
                 botones.add(b12);
-                comparar();
+                comparar2();
             }
         });
         b13.setOnClickListener(new View.OnClickListener() {
@@ -154,7 +157,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b13.setText("7");
                 botones.add(b13);
-                comparar();
+                comparar2();
             }
         });
         b14.setOnClickListener(new View.OnClickListener() {
@@ -162,7 +165,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b14.setText("5");
                 botones.add(b14);
-                comparar();
+                comparar2();
             }
         });
         b15.setOnClickListener(new View.OnClickListener() {
@@ -170,7 +173,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b15.setText("8");
                 botones.add(b15);
-                comparar();
+                comparar2();
             }
         });
         b16.setOnClickListener(new View.OnClickListener() {
@@ -178,7 +181,7 @@ public class MainActivity extends ActionBarActivity  {
             public void onClick(View v) {
                 b16.setText("6");
                 botones.add(b16);
-                comparar();
+                comparar2();
             }
         });
 
@@ -209,6 +212,18 @@ public class MainActivity extends ActionBarActivity  {
         return super.onOptionsItemSelected(item);
     }
 
+public void comparar2()
+{
+    final Handler handler = new Handler();
+    handler.postDelayed(new Runnable() {
+        @Override
+        public void run() {
+            comparar();
+
+        }
+    }, 1500);
+
+}
 
 
     public void comparar(){
@@ -218,6 +233,7 @@ public class MainActivity extends ActionBarActivity  {
         //    new Timer().schedule(new TimerTask() {
           //      @Override
             //    public void run() {
+
                     Button a = (Button) botones.get(0);
                     Button b = (Button) botones.get(1);
                     botones.clear();
